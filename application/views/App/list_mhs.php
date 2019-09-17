@@ -30,7 +30,7 @@
 					<td><?php echo $row->gol;?></td>
 					<td><?php echo $row->alamat;?></td>
 					<td><?php echo $row->telp;?></td>
-					<td><?php echo $row->foto;?></td>
+					<td><img src="<?php echo base_url().'assets/img/gambar/'.$row->foto;?>" ></td>
 					<td><a href="<?php echo base_url(); ?>Mahasiswa/edit/<?php echo $row->nim;?>">Edit</a></td>
 					<td><a href="<?php echo base_url(); ?>Mahasiswa/delete/<?php echo $row->nim;?>">Hapus</a></td>
 				</tr>
