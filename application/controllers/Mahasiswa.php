@@ -23,7 +23,10 @@ class Mahasiswa extends CI_Controller
 			'nim' => $this->input->post('nim'),
 			'nama' => $this->input->post('nama'),
 			'tm_prodi_id' => $this->input->post('prodi'),
-			'tm_gol_id' => $this->input->post('gol')));
+			'tm_gol_id' => $this->input->post('gol'),
+			'alamat' => $this->input->post('alamat'),
+			'telp' => $this->input->post('telp'),
+			'foto' => $this->input->post('foto')));
 			redirect('Mahasiswa/');
 		}else{
 			$x =$this->Model_Mahasiswa->get_prodi();

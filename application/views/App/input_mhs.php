@@ -32,6 +32,12 @@
         </select>
 		<br/><br/>
 
+		No Telepon<br/><input type="text" name="telp" size="30" maxlength="10" value="<?php if(isset($data)) { echo $data[0]->nim; } ?>"><br/><br/>
+        
+        Alamat<br/><input type="text" name="alamat" size="30" maxlength="25" value="<?php if(isset($data)) { echo $data[0]->alamat; } ?>"><br/><br/>
+
+        Foto<br/><input type="file" name="foto" size="30" maxlength="25" value="<?php if(isset($data)) { echo $data[0]->foto; } ?>"><br/><br/>
+
 			 <input type="submit" name="Btntambah" value="simpan">
 			  <a href="<?php echo base_url()?>Mahasiswa">Kembali</a>
 			</form>
