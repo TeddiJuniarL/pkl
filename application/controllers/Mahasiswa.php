@@ -1,5 +1,5 @@
 
-<?php 
+<?php
 
 class Mahasiswa extends CI_Controller
 {
@@ -9,7 +9,7 @@ class Mahasiswa extends CI_Controller
  		$this->load->helper(array('url'));
 		$this->load->model('Model_Mahasiswa');
  	}
-	
+
 	function index()
 	{
 		$data = array(
@@ -50,7 +50,7 @@ class Mahasiswa extends CI_Controller
 		$data = array(
             'user' => $this->Model_Mahasiswa->get_data_edit($id)
 		);
-      
+
     	$data['id']= $this->Model_Mahasiswa->get_prodi();
      	$data['prodi']= $this->Model_Mahasiswa->get_prodi();
 		$data['id']= $this->Model_Mahasiswa->get_gol();
@@ -63,13 +63,16 @@ class Mahasiswa extends CI_Controller
 		$nama = $this->input->post('nama');
 		$prodi = $this->input->post('tm_prodi_id');
 		$gol = $this->input->post('tm_gol_id');
+		$alamat = $this->input->post('alamat');
+		$telp = $this->input->post('telp');
+		$foto = $this->input->post('foto');
 
 		//echo $nim;
 		//echo $nama;
 		//echo $prodi;
 		//echo $gol;
 
-		$this->Model_Mahasiswa->update($nim,$nama,$prodi,$gol);
+		$this->Model_Mahasiswa->update($nim,$nama,$prodi,$gol,$alamat,$telp,$foto);
 
        redirect('Mahasiswa/');
         }
