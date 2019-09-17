@@ -1,21 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: 17 Sep 2019 pada 04.06
--- Versi Server: 10.1.9-MariaDB
--- PHP Version: 5.6.15
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `db_ci`
 --
@@ -53,7 +35,7 @@ CREATE TABLE `tm_mahasiswa` (
   `nama` varchar(50) NOT NULL,
   `tm_prodi_id` int(4) DEFAULT NULL,
   `tm_gol_id` int(4) DEFAULT NULL,
-  `tm_telp` int(13) NOT NULL,
+  `telp` int(13) DEFAULT NULL,
   `alamat` text NOT NULL,
   `foto` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -62,9 +44,9 @@ CREATE TABLE `tm_mahasiswa` (
 -- Dumping data untuk tabel `tm_mahasiswa`
 --
 
-INSERT INTO `tm_mahasiswa` (`nim`, `nama`, `tm_prodi_id`, `tm_gol_id`, `tm_telp`, `alamat`, `foto`) VALUES
-('E31171396', 'Alda Ghealuly', 1, 2, 0, '', ''),
-('E31171494', 'Teddi Juniarlaksono', 1, 3, 0, '', '');
+INSERT INTO `tm_mahasiswa` (`nim`, `nama`, `tm_prodi_id`, `tm_gol_id`, `telp`, `alamat`, `foto`) VALUES
+('E31171396', 'Alda Ghealuly', 1, 2, NULL, '', ''),
+('E31171494', 'Teddi Juniarlaksono', 1, 3, NULL, '', '');
 
 -- --------------------------------------------------------
 
