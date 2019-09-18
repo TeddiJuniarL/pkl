@@ -81,6 +81,8 @@ class Mahasiswa extends CI_Controller
 	}
 
 	function update(){
+		if (isset($_POST['btnTambah'])){
+
 		$config['max_size']=2048;
 		$config['allowed_types']="png|jpg|jpeg|gif";
 		$config['remove_spaces']=TRUE;
@@ -93,6 +95,7 @@ class Mahasiswa extends CI_Controller
 		//ambil data image
 		$this->upload->do_upload('photo');
 		$data_image=$this->upload->data('file_name');
+		$location=base_url().'assets/images/';
 		$pict=$data_image;
 
 		$nim = $this->input->post('nim');
@@ -101,7 +104,7 @@ class Mahasiswa extends CI_Controller
 		$gol = $this->input->post('tm_gol_id');
 		$alamat = $this->input->post('alamat');
 		$telp = $this->input->post('telp');
-		$pict = $this->input->post('photo');
+		$photo = $this->input->post('photo');
 	//	$foto = $this->input->post('foto');
 
 		//echo $nim;
@@ -109,9 +112,10 @@ class Mahasiswa extends CI_Controller
 		//echo $prodi;
 		//echo $gol;
 
-		$this->Model_Mahasiswa->update($nim,$nama,$prodi,$gol,$alamat,$telp, $pict);
+		$this->Model_Mahasiswa->update($nim,$nama,$prodi,$gol,$alamat,$telp, $photo);
 
        redirect('Mahasiswa/');
         }
 	}
+}
  ?>

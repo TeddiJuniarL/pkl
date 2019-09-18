@@ -7,7 +7,8 @@
     <h4 align="center">Tambah Data Mahasiswa</h4>
         <div align="center">
         <p>
-          <form method="post" action="<?php echo base_url()?>Mahasiswa/update">
+          <form action="<?=base_url('Mahasiswa/update') ?>" method="post" enctype="multipart/form-data">
+
         NIM <input type="text" name="nim" size="10" maxlength="10" value="<?php echo $user->nim ; ?>"><br/><br/>
 
         Nama <input type="text" name="nama" size="30" maxlength="25" value="<?php echo $user->nama;  ?>"><br/><br/>
@@ -45,7 +46,7 @@
         No. Telepon <input type="text" name="telp" size="30" maxlength="25" value="<?php echo $user->telp;  ?>"><br/><br/>
         Foto <input type="file" name="photo" size="30" maxlength="25" value="<?php echo $user->photo;  ?>"><br/><br/>
         <div style="padding-bottom:5px">
-          <img src="" width="80px" id="pict">
+          <img src="<?php echo base_url('assets/images/'.$user->photo)?>" width="80px" id="pict">
         </div><br/>
         <input type="submit" name="btnTambah" value="Simpan"/>
         <a href="<?php echo base_url()?>Mahasiswa/">Kembali</a>
