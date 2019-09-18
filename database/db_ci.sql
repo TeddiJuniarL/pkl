@@ -1,6 +1,39 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.4.1
+-- http://www.phpmyadmin.net
 --
--- Database: `db_ci`
+-- Inang: 127.0.0.1
+-- Waktu pembuatan: 18 Sep 2019 pada 05.30
+-- Versi Server: 5.6.11
+-- Versi PHP: 5.5.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
 --
+-- Basis data: `db_ci`
+--
+CREATE DATABASE IF NOT EXISTS `db_ci` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `db_ci`;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `gambar`
+--
+
+CREATE TABLE IF NOT EXISTS `gambar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `judul_gambar` text NOT NULL,
+  `nama_gambar` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -8,10 +41,11 @@
 -- Struktur dari tabel `tm_gol`
 --
 
-CREATE TABLE `tm_gol` (
-  `id` int(4) NOT NULL,
-  `gol` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `tm_gol` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `gol` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data untuk tabel `tm_gol`
@@ -30,14 +64,17 @@ INSERT INTO `tm_gol` (`id`, `gol`) VALUES
 -- Struktur dari tabel `tm_mahasiswa`
 --
 
-CREATE TABLE `tm_mahasiswa` (
+CREATE TABLE IF NOT EXISTS `tm_mahasiswa` (
   `nim` varchar(9) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `tm_prodi_id` int(4) DEFAULT NULL,
   `tm_gol_id` int(4) DEFAULT NULL,
   `telp` int(13) DEFAULT NULL,
   `alamat` text NOT NULL,
-  `foto` varchar(225) NOT NULL
+  `foto` varchar(225) NOT NULL,
+  PRIMARY KEY (`nim`),
+  KEY `tm_prodi_id` (`tm_prodi_id`),
+  KEY `tm_gol_id` (`tm_gol_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -45,8 +82,13 @@ CREATE TABLE `tm_mahasiswa` (
 --
 
 INSERT INTO `tm_mahasiswa` (`nim`, `nama`, `tm_prodi_id`, `tm_gol_id`, `telp`, `alamat`, `foto`) VALUES
-('E31171396', 'Alda Ghealuly', 1, 2, NULL, '', ''),
-('E31171494', 'Teddi Juniarlaksono', 1, 3, NULL, '', '');
+('111', '', 1, 1, 0, '', ''),
+('219832190', 'Teddy Juniarlaksono', 1, 4, 906643, 'bondowoso', '261612975010212.png'),
+('656', '', 1, 1, 0, '', ''),
+('E31170150', 'putri kinanti', 1, 3, 876543217, 'jember', 'Lighthouse.jpg'),
+('E31170155', 'Maulidiyawati', 1, 1, 9977856, 'probolinggo', 'Tulips.jpg'),
+('E31170157', 'Kahfi yudha', 1, 1, 876543123, 'Malang', 'Hydrangeas.jpg'),
+('E31170176', 'alda', 1, 4, 98765, 'leces', 'Koala.jpg');
 
 -- --------------------------------------------------------
 
@@ -54,10 +96,11 @@ INSERT INTO `tm_mahasiswa` (`nim`, `nama`, `tm_prodi_id`, `tm_gol_id`, `telp`, `
 -- Struktur dari tabel `tm_prodi`
 --
 
-CREATE TABLE `tm_prodi` (
-  `id` int(4) NOT NULL,
-  `prodi` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `tm_prodi` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `prodi` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data untuk tabel `tm_prodi`
@@ -68,44 +111,6 @@ INSERT INTO `tm_prodi` (`id`, `prodi`) VALUES
 (2, 'TKK'),
 (3, 'TIF');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `tm_gol`
---
-ALTER TABLE `tm_gol`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tm_mahasiswa`
---
-ALTER TABLE `tm_mahasiswa`
-  ADD PRIMARY KEY (`nim`),
-  ADD KEY `tm_prodi_id` (`tm_prodi_id`),
-  ADD KEY `tm_gol_id` (`tm_gol_id`);
-
---
--- Indexes for table `tm_prodi`
---
-ALTER TABLE `tm_prodi`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `tm_gol`
---
-ALTER TABLE `tm_gol`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `tm_prodi`
---
-ALTER TABLE `tm_prodi`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --

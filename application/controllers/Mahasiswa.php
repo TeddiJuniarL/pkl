@@ -36,9 +36,8 @@ class Mahasiswa extends CI_Controller
 			//ambil data image
 			$this->upload->do_upload('photo');
 			$data_image=$this->upload->data('file_name');
-			$location=base_url().'assets/images/';
-			$pict=$location.$data_image;
-		
+			$pict=$data_image;
+
 			$data = array(
 			'nim' => $this->input->post('nim'),
 			'nama' => $this->input->post('nama'),
