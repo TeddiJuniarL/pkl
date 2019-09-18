@@ -7,7 +7,8 @@
 <h4 align="center">Tambah Data Mahasiswa</h4>
 		<div align="center">
 		<p>
-			<form method="post" action="input">
+		
+		<form action="<?=base_url('mahasiswa/input') ?>" method="post" enctype="multipart/form-data">
 			 Nim<br/><input type="text" name="nim" size="10" maxlength="10" value="<?php if(isset($data)) { echo $data[0]->nim; } ?>"><br/><br/>
 
 			 Nama<br/><input type="text" name="nama" size="30" maxlength="25" value="<?php if(isset($data)) { echo $data[0]->nama; } ?>"><br/><br/>
@@ -36,9 +37,9 @@
         
         Alamat<br/><input type="text" name="alamat" size="30" maxlength="25" value="<?php if(isset($data)) { echo $data[0]->alamat; } ?>"><br/><br/>
 
-        Foto<br/><input type="file" name="foto" size="30" maxlength="25" value="<?php if(isset($data)) { echo $data[0]->foto; } ?>"><br/><br/>
+        Foto<br/><input type="file" name="foto" ><br/><br/>
 
-			 <input type="submit" name="Btntambah" value="simpan">
+			 <input type="submit" name="Btntambah" value="Simpan">
 			  <a href="<?php echo base_url()?>Mahasiswa">Kembali</a>
 			</form>
 		</p>

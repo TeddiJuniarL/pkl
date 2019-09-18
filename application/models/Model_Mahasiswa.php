@@ -5,7 +5,7 @@
 
  	function get_table()
  	{
- 		return $this->db->get("tm_mahasiswa");
+ 		return $this->db->get("tm_mahasiswa")->result();
  	}
 
  	function get_prodi(){
@@ -33,8 +33,7 @@
     }
 
 	function input($data){
-		$query = $this->db->insert('tm_mahasiswa',$data);
-		return $query;
+		$this->db->insert('tm_mahasiswa',$data);
 	}
 
 	function update($nim,$nama,$prodi,$gol, $alamat, $telp, $foto){
