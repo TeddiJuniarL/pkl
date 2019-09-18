@@ -16,7 +16,7 @@
 					<th>Golongan</th>
 					<th>Alamat</th>
 					<th>No Telepon</th>
-					<th>Foto</th>
+					<th>Photo</th>
 					<th colspan="2"></th>
 				</tr>
 				<?php
@@ -31,7 +31,7 @@
 					<td><?php echo $row->alamat;?></td>
 					<td><?php echo $row->telp;?></td>
 					<td>
-					<img src="<?=base_url('assets/images/'.$row->foto)?>" style="width:300px; height:150">
+					<img src="<?=base_url('assets/images/'.$row->photo)?>" style="width:300px; height:150">
 					</td>
 					<td><a href="<?php echo base_url(); ?>Mahasiswa/edit/<?php echo $row->nim;?>">Edit</a></td>
 					<td><a href="<?php echo base_url(); ?>Mahasiswa/delete/<?php echo $row->nim;?>">Hapus</a></td>

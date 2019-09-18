@@ -5,7 +5,7 @@
 
  	function get_table()
  	{
- 		return $this->db->get("tm_mahasiswa")->result();
+ 		return $this->db->get("tm_mahasiswa");
  	}
 
  	function get_prodi(){
@@ -36,8 +36,8 @@
 		$this->db->insert('tm_mahasiswa',$data);
 	}
 
-	function update($nim,$nama,$prodi,$gol, $alamat, $telp, $foto){
-	$query = $this->db->query("UPDATE tm_mahasiswa SET nama='$nama', tm_prodi_id='$prodi', tm_gol_id='$gol', alamat='$alamat', telp='$telp', foto='$foto' WHERE nim='$nim' ");
+	function update($nim,$nama,$prodi,$gol, $alamat, $telp){
+	$query = $this->db->query("UPDATE tm_mahasiswa SET nama='$nama', tm_prodi_id='$prodi', tm_gol_id='$gol', alamat='$alamat', telp='$telp' WHERE nim='$nim' ");
 			return $query;
 	}
 

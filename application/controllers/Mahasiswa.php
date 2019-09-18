@@ -21,19 +21,33 @@ class Mahasiswa extends CI_Controller
 	}
 
 	function input(){
+
 		if (isset($_POST['Btntambah'])){
+
+			$config['max_size']=2048;
+			$config['allowed_types']="png|jpg|jpeg|gif";
+			$config['remove_spaces']=TRUE;
+			$config['overwrite']=TRUE;
+			$config['upload_path']=FCPATH.'assets/images/';
+
+			$this->load->library('upload');
+			$this->upload->initialize($config);
+
+			//ambil data image
+			$this->upload->do_upload('photo');
+			$data_image=$this->upload->data('file_name');
+			$location=base_url().'assets/images/';
+			$pict=$location.$data_image;
+		
 			$data = array(
 			'nim' => $this->input->post('nim'),
 			'nama' => $this->input->post('nama'),
 			'tm_prodi_id' => $this->input->post('prodi'),
 			'tm_gol_id' => $this->input->post('gol'),
 			'alamat' => $this->input->post('alamat'),
-			'telp' => $this->input->post('telp'),);
+			'telp' => $this->input->post('telp'),
+			'photo' => $pict );
 
-		if (!empty($_FILES['foto']['name'])) {
-			$upload = $this->aksi_upload();
-			$data['foto'] = $upload;
-		}
 			$this->Model_Mahasiswa->input($data);
 			redirect('Mahasiswa', $data);
 	}else{
@@ -46,25 +60,6 @@ class Mahasiswa extends CI_Controller
 			$this->load->view('App/input_mhs',$data);
 	}
 }
-
-	function aksi_upload(){
- 		$config['upload_path']          = 'assets/images/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg';
-		$config['max_size']             = 2048;
-		$config['max_width']            = 1024;
-		$config['max_height']           = 768;
-
-		$this->load->library('upload', $config);
-
-		if ( ! $this->upload->do_upload('foto')){
-			$error = array('error' => $this->upload->display_errors());
-			$this->load->view('App/input_mhs', $error);
-		}else{
-			$data = array('upload_data' => $this->upload->data());
-			$this->load->view('App/list_mhs', $data);
-			}
-		}
-
 
 	function delete($id){
 		$this->Model_Mahasiswa->delete($id);
@@ -92,14 +87,14 @@ class Mahasiswa extends CI_Controller
 		$gol = $this->input->post('tm_gol_id');
 		$alamat = $this->input->post('alamat');
 		$telp = $this->input->post('telp');
-		$foto = $this->input->post('foto');
+	//	$foto = $this->input->post('foto');
 
 		//echo $nim;
 		//echo $nama;
 		//echo $prodi;
 		//echo $gol;
 
-		$this->Model_Mahasiswa->update($nim,$nama,$prodi,$gol,$alamat,$telp,$foto);
+		$this->Model_Mahasiswa->update($nim,$nama,$prodi,$gol,$alamat,$telp);
 
        redirect('Mahasiswa/');
         }
