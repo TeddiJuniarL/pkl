@@ -36,8 +36,8 @@
 		$this->db->insert('tm_mahasiswa',$data);
 	}
 
-	function update($nim,$nama,$prodi,$gol, $alamat, $telp){
-	$query = $this->db->query("UPDATE tm_mahasiswa SET nama='$nama', tm_prodi_id='$prodi', tm_gol_id='$gol', alamat='$alamat', telp='$telp' WHERE nim='$nim' ");
+	function update($nim,$nama,$prodi,$gol, $alamat, $telp, $pict){
+	$query = $this->db->query("UPDATE tm_mahasiswa SET nama='$nama', tm_prodi_id='$prodi', tm_gol_id='$gol', alamat='$alamat', telp='$telp', photo='$pict' WHERE nim='$nim' ");
 			return $query;
 	}
 

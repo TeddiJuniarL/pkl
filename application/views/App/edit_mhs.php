@@ -8,11 +8,11 @@
         <div align="center">
         <p>
           <form method="post" action="<?php echo base_url()?>Mahasiswa/update">
-        NIM<br/><input type="text" name="nim" size="10" maxlength="10" value="<?php echo $user->nim ; ?>"><br/><br/>
+        NIM <input type="text" name="nim" size="10" maxlength="10" value="<?php echo $user->nim ; ?>"><br/><br/>
 
-        Nama<br/><input type="text" name="nama" size="30" maxlength="25" value="<?php echo $user->nama;  ?>"><br/><br/>
+        Nama <input type="text" name="nama" size="30" maxlength="25" value="<?php echo $user->nama;  ?>"><br/><br/>
 
-        Prodi<br/>
+        Prodi
         <?php
         echo '<select class="form-control" name="tm_prodi_id">' ;
             foreach($prodi as $rows)
@@ -27,7 +27,7 @@
         ?>
         <br/><br/>
 
-        Golongan<br/>
+        Golongan
         <?php
         echo '<select class="form-control" name="tm_gol_id">';
             foreach($golongan as $rows)
@@ -41,12 +41,12 @@
             echo '</select>';
         ?>
   <br/><br/>
-        Alamat<br/><input type="text" name="alamat" size="30" maxlength="25" value="<?php echo $user->alamat;  ?>"><br/><br/>
-                <br/><br/>
-        No. Telepon<br/><input type="text" name="telp" size="30" maxlength="25" value="<?php echo $user->telp;  ?>"><br/><br/>
-                        <br/><br/>
-        Foto<br/><input type="file" name="photo" size="30" maxlength="25" value="<?php echo $user->photo;  ?>"><br/><br/>
-                                <br/><br/>
+        Alamat <input type="text" name="alamat" size="30" maxlength="25" value="<?php echo $user->alamat;  ?>"><br/><br/>
+        No. Telepon <input type="text" name="telp" size="30" maxlength="25" value="<?php echo $user->telp;  ?>"><br/><br/>
+        Foto <input type="file" name="photo" size="30" maxlength="25" value="<?php echo $user->photo;  ?>"><br/><br/>
+        <div style="padding-bottom:5px">
+          <img src="" width="80px" id="pict">
+        </div><br/>
         <input type="submit" name="btnTambah" value="Simpan"/>
         <a href="<?php echo base_url()?>Mahasiswa/">Kembali</a>
     </form>
