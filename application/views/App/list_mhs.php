@@ -35,7 +35,7 @@
 					</td>
 					<td><a href="<?php echo base_url(); ?>Mahasiswa/edit/<?php echo $row->nim;?>">Edit</a></td>
 					<td><a href="<?php echo base_url(); ?>Mahasiswa/delete/<?php echo $row->nim;?>">Hapus</a></td>
-				</tr>
+				</tr> 
 				<?php $no++;
                 endforeach;?>
 			</table>

@@ -8,7 +8,7 @@
 		<div align="center">
 		<p>
 		
-		<form action="<?=base_url('Mahasiswa/input') ?>" method="post" enctype="multipart/form-data">
+		<form action="<?php echo base_url('Mahasiswa/input') ?>" method="post" enctype="multipart/form-data">
 			 Nim<br/><input type="text" name="nim" size="10" maxlength="10" ><br/><br/>
 
 			 Nama<br/><input type="text" name="nama" size="30" maxlength="25" ><br/><br/>
