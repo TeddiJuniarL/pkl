@@ -44,9 +44,10 @@
   <br/><br/>
         Alamat <input type="text" name="alamat" size="30" maxlength="25" value="<?php echo $user->alamat;  ?>"><br/><br/>
         No. Telepon <input type="text" name="telp" size="30" maxlength="25" value="<?php echo $user->telp;  ?>"><br/><br/>
-        Foto <input type="file" name="photo" size="30" maxlength="25" value="<?php echo $user->photo;  ?>"><br/><br/>
-        <div style="padding-bottom:5px">
-          <img src="<?php echo base_url('assets/images/'.$user->photo)?>" width="80px" id="pict">
+        Foto <input type="file" name="photo"><br/><br/>
+          <div style="padding-bottom:5px">
+          <img src="<?php echo base_url('assets/images/'.$user->photo)?>"  width="80px" id="pict">
+          <input type="hidden"  name="photo" value="<?php echo $user->photo; ?>"
         </div><br/>
         <input type="submit" name="btnTambah" value="Simpan"/>
         <a href="<?php echo base_url()?>Mahasiswa/">Kembali</a>
